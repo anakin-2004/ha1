@@ -90,5 +90,15 @@ class CalculatorTest {
 
 
     //TODO hier weitere Tests erstellen
+    @Test
+    void percentOf50Is0Point5() {
+        Calculator calculator = new Calculator();
+
+        calculator.pressDigitKey(5);
+        calculator.pressDigitKey(0);
+        calculator.pressUnaryOperationKey("%");
+
+        assertEquals("0.5", calculator.readScreen());
+    }
 }
 
