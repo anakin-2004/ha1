@@ -109,5 +109,19 @@ class CalculatorTest {
 
         assertEquals("7", calculator.readScreen());
     }
+    @Test
+    void firstClearOnlyClearsCurrentEntryButKeepsPendingOperation() {
+        Calculator calculator = new Calculator();
+
+        calculator.pressDigitKey(7);
+        calculator.pressBinaryOperationKey("+");
+        calculator.pressDigitKey(3);
+
+        calculator.pressClearKey();   // nur aktuelle Eingabe löschen
+        calculator.pressDigitKey(2);
+        calculator.pressEqualsKey();
+
+        assertEquals("9", calculator.readScreen());
+    }
 }
 
