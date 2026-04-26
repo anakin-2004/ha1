@@ -100,5 +100,14 @@ class CalculatorTest {
 
         assertEquals("0.5", calculator.readScreen());
     }
+    @Test
+    void equalsWithoutPreviousOperationDoesNothing() {
+        Calculator calculator = new Calculator();
+
+        calculator.pressDigitKey(7);
+        calculator.pressEqualsKey();
+
+        assertEquals("7", calculator.readScreen());
+    }
 }
 
